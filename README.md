@@ -28,3 +28,7 @@ $ npm install
 $ npm run dev
 ```
 Then open (http://localhost:5000) to see the application working. And yes now you have a svelte todo application to test and work on.
+
+### Reference
+
+[Svelte Guide]https://svelte.dev/blog/the-easiest-way-to-get-started
