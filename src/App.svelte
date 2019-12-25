@@ -1,7 +1,5 @@
 <script>
 	import ListContainer from './components/listContainer.svelte'
-	import { setContext } from 'svelte'
-	setContext('items', (JSON.parse(localStorage.getItem('items')) || []))
 </script>
 
 <style>

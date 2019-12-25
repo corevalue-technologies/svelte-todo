@@ -1,7 +1,10 @@
 <script>
+
+    // Defining prop 'text', 'status', 'deleteTask', 'markComplete'
+
     export let text;
     export let status;
-    export let deleteItem;
+    export let deleteTask;
     export let markComplete;
 </script>
 
@@ -68,7 +71,7 @@
             </p>
             <div class="actions">
                 <i class="fa fa-check-circle {status === 'Completed' ? 'completeIcon' : 'pendingIcon'}" on:click={markComplete}></i>
-                <i class="fa fa-trash" on:click={deleteItem}></i>
+                <i class="fa fa-trash" on:click={deleteTask}></i>
             </div>
         </div>
     </div>

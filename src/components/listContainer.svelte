@@ -1,29 +1,32 @@
 <script>
-    import ItemContainer from './itemContainer.svelte'
-    import { itemArr } from '../store.js'
-    import { onMount } from 'svelte'
-    let items
+    import TaskContainer from './taskContainer.svelte'
+    import { taskArr } from '../store.js'
+    let tasks
 
-    // Subscribe to store itemArr variable
+    // Subscribe to store taskArr variable (By subscription we update our tasks array when store taskArr changes)
 
-    itemArr.subscribe(value => {
-        items = value
+    taskArr.subscribe(value => {
+        tasks = value
     })
-    let itemText = ''
-    function addItem () {
-        if (itemText !== '') {
-            items = [...items, {id: Date.now(), text: itemText, status: 'Pending'}]
-            itemText = ''
-            localStorage.setItem('items', JSON.stringify(items))
 
-            // Using svelte store update method
+    let taskText = ''
+    function addTask () {
+        if (taskText !== '') {
+            tasks = [...tasks, {id: Date.now(), text: taskText, status: 'Pending'}]
+            taskText = ''
 
-            itemArr.update(val => JSON.parse(localStorage.getItem('items')))
+            // Storing tasks in localStorage for persistence
+
+            localStorage.setItem('tasks', JSON.stringify(tasks))
+
+            // Using svelte store update method. Updating store taskArr with the value of tasks in localStorage
+
+            taskArr.update(val => JSON.parse(localStorage.getItem('tasks')))
         }
     }
-    function buttonPress (e) {
+    function buttonKeyup (e) {
         if (e.keyCode === 13) {
-            addItem()
+            addTask()
         }
     }
 </script>
@@ -108,19 +111,19 @@
 <div class="list-container">
     <div class="container">
         <div class="col-sm-0 col-md-2 col-lg-2"></div>
-            <div class="col-sm-12 col-md-8 col-lg-8 content">
-                <div class="heading">
-                    <h1>To.Do</h1>
-                </div>
-                <div class="info">
-                    <p>This is a very simple Todo application made in <a href="https://svelte.dev/">svelte.js.</a> Easy to understand svelte.js basics.</p>
-                </div>
-                <div class="inputBlock">
-                    <input type="text" class="input_field" bind:value={itemText} on:keypress={buttonPress} placeholder="Add a task" />
-                    <button type="button" class="btn addBtn btn--inside" on:click={addItem}>Add</button>
-                </div>
-                <ItemContainer items={items}/>
+        <div class="col-sm-12 col-md-8 col-lg-8 content">
+            <div class="heading">
+                <h1>To.Do</h1>
             </div>
-            <div class="col-sm-0 col-md-2 col-lg-2"></div>
+            <div class="info">
+                <p>This is a very simple Todo application made in <a href="https://svelte.dev/">svelte.js.</a> Easy to understand svelte.js basics.</p>
+            </div>
+            <div class="inputBlock">
+                <input type="text" class="input_field" bind:value={taskText} on:keypress={buttonKeyup} placeholder="Add a task" />
+                <button type="button" class="btn addBtn btn--inside" on:click={addTask}>Add</button>
+            </div>
+            <TaskContainer tasks={tasks}/>
+        </div>
+        <div class="col-sm-0 col-md-2 col-lg-2"></div>
     </div>
 </div>
