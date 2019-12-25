@@ -23,7 +23,7 @@ svelteTodo requires [Node.js](https://nodejs.org/) to run.
 Install the dependencies and start the dev server.
 
 ```sh
-$ cd svelteTodo
+$ cd svelte-todo
 $ npm install
 $ npm run dev
 ```
