@@ -105,7 +105,7 @@
             {#if tasks.length > 0}
                 {#each tasks as task}
                     <div class="col-sm-12 col-md-12 col-lg-12 task">
-                        <ListTask text={task.text} status={task.status} markComplete={markCompleted.bind(this, task.id)} deleteTask={deleteTask.bind(this, task.id)}/>
+                        <ListTask text={task.text} status={task.status} markComplete={() => markCompleted(task.id)} deleteTask={() => deleteTask(task.id)}/>
                     </div>
                 {/each}
             {:else}
