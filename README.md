@@ -31,4 +31,4 @@ Then open (http://localhost:5000) to see the application working. And yes now yo
 
 ### Reference
 
-[Svelte Guide]https://svelte.dev/blog/the-easiest-way-to-get-started
+[Svelte_Guide]https://svelte.dev/blog/the-easiest-way-to-get-started
