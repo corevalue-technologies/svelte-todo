@@ -1,6 +1,6 @@
 # svelte-todo
 
-svelte-todo is a simple application built with SvelteJS including state management, props and store features of svelte. This is a very easy to understand project if you are working on some JS framework (Vue, React etc.).
+svelte-todo is a simple application built with [SvelteJS](https://svelte.dev/) including state management, props and store features of svelte. This is a very easy to understand project if you are working on some JS framework (Vue, React etc.).
 
  Features of this application:
   - Add a task to the ToDo List.
